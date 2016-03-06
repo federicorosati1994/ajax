@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+
+	#clickOnMe{
+		color: red;
+	}
+
+	</style>
+</head>
+<body>
+	<button id="clickOnMe">Cliccami</button>
+
+	<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.js"></script>
+	<script type="text/javascript">
+
+		//servizi http://jsonplaceholder.typicode.com/
+
+		$("#clickOnMe").click(clickBtn);
+		
+		function clickBtn(){
+			$.ajax("./text.html", {
+				success: function(response){
+					console.log(response);
+				},
+				error: function(){
+					alert("Pagina non trovata!");
+				},
+				beforeSend: function(){
+					$("#clickOnMe").html("Sto caricando...");
+				},
+				complete: function(){
+					$("#clickOnMe").html("Caricato");
+				}
+			})
+		}
+
+	</script>
+</body>
+</html>
+
