@@ -33,24 +33,24 @@ $(".red").on("click",function(){
 });
 
 $("#scroll_container").on("scroll", function() {
-	if(scrolled){
+	if(scrolled){ //when scroll
 		alert("Stai scrollando!");
 		scrolled=false;
 	};
-	if(scrollMove > $(this).scrollTop()){
+	if(scrollMove > $(this).scrollTop()){ //when scroll to top
 		console.log("stai salendo...")
 	}
-	if(scrollMove < $(this).scrollTop()){
+	if(scrollMove < $(this).scrollTop()){ //when scroll to bottom
 		console.log("stai scendendo...")
 	}
 	scrollMove = $(this).scrollTop();
 });
 
 $('#scroll_container').bind('scroll', function(){
-    if($(this).scrollTop() + $(this).innerHeight()>=$(this)[0].scrollHeight){
+    if($(this).scrollTop() + $(this).innerHeight()>=$(this)[0].scrollHeight){ //when scroll is finished
         alert("Fine!");
     };
-    if($(this).scrollTop() == 0){
+    if($(this).scrollTop() == 0){ //when scroll is on the top
         alert("Inizio!");
     };
 })
